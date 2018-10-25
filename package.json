@@ -11,7 +11,10 @@
     "start": "webpack --mode development",
     "build": "webpack --mode production"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
+  },
   "devDependencies": {
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "webpack": "^4.23.1",
