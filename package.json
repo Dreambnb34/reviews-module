@@ -7,7 +7,10 @@
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {},
+  "scripts": {
+    "start": "webpack --mode development",
+    "build": "webpack --mode production"
+  },
   "dependencies": {},
   "devDependencies": {
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
