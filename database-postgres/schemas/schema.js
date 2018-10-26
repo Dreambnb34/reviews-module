@@ -7,7 +7,7 @@ exports.up = knex => {
       })
     .createTable('listings', table => {
         table.increments('id').primary();
-        table.point('latLong');
+        table.specificType('coordinates', 'POINT');
         table
           .integer('reviewCount')
           .unsigned();
