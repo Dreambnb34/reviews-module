@@ -10,7 +10,8 @@
   "scripts": {
     "lint": "eslint ./client/src/*.jsx",
     "start": "webpack-cli --watch & live-server --open=./client/dist/index.html",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "seed": "knex migrate:latest && knex seed:run"
   },
   "jest": {
     "verbose": true,
