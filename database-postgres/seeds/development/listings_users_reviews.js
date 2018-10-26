@@ -9,6 +9,14 @@ const usersData = require('../../../faker/json/users/users');
 //     table.text('gettingAroundDescription');
 // })
 
+/*
+   .createTable('users', table => {
+        table.increments('id').primary();
+        table.string('avatarUrl');
+        table.string('username');
+      })
+*/
+
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
   return knex('listings').del()
