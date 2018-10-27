@@ -1,34 +1,6 @@
-// .createTable('reviews', table => {
-//     table.increments('id').primary();
-//     table
-//       .integer('userId')
-//       .unsigned()
-//       .references('id')
-//       .inTable('users')
-//       .onDelete('SET NULL');
-//     table
-//       .integer('listingsId')
-//       .unsigned()
-//       .references('id')
-//       .inTable('listings')
-//       .onDelete('SET NULL');
-//     table.text('reviewText');
-//     table.text('responseText');
-//     table.boolean('flagged')
-//       .defaultTo(false);
-//     table.date('createdAt');
-//     table.integer('accuracyRating');
-//     table.integer('communicationRating');
-//     table.integer('cleanlinessRating');
-//     table.integer('locationRating');
-//     table.integer('check_In_Rating');
-//     table.integer('valueRating');
-// });
-
 const faker = require('faker');
 const fs = require('fs');
 const path = require('path');
-const AWS = require('aws-sdk');
 
 let fakerData = [];
 
