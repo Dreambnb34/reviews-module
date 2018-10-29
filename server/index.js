@@ -7,15 +7,15 @@ const path = require('path');
 
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 
-app.use('/', routes);
+app.use('*', routes);
 app.use(express.static(path.join(__dirname, '../client/dist/')));
 
 const port = process.env.PORT || 1337;
 
 app.listen(port, () => {
-    console.log('listening on 1337!');
+  console.log('listening on 1337!');
 });
-
