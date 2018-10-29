@@ -1,3 +1,9 @@
-// module.exports = {
-//     setupFiles: ['<rootDir>/tests/setup.js'],
-// }
+const path = require('path');
+
+module.exports = {
+  verbose: true,
+  setupTestFrameworkScriptFile: require.resolve(
+    path.join(__dirname, 'jest.setup.js'),
+  ),
+  // ... other options ...
+};
