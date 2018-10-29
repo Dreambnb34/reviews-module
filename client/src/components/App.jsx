@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import ReviewCount from './ReviewCount/ReviewCount';
+// import ReviewCount from './ReviewCount/ReviewCount';
+import Review from './Modular/Review';
 
 class App extends Component {
   constructor(props) {
@@ -9,7 +10,10 @@ class App extends Component {
   render() {
     return (
       <div id="App">
-        <ReviewCount />
+        <Review
+          username="Mooooooo"
+          avatarURL="https://hrr34-jaypatrickdeguzman-fec.s3.amazonaws.com/FEC/avatar_photos/62dsfsdfsdf.jpg"
+        />
       </div>
     );
   }
