@@ -1,4 +1,3 @@
-// const HtmlWebPackPlugin = require("html-webpack-plugin");
 const path = require('path');
 
 const SRC_DIR = path.join(__dirname, '/client/src');
@@ -7,8 +6,8 @@ const DIST_DIR = path.join(__dirname, '/client/dist');
 module.exports = {
   entry: `${SRC_DIR}/index.jsx`,
   output: {
-      filename: 'bundle.js',
-      path: DIST_DIR
+    filename: 'bundle.js',
+    path: DIST_DIR,
   },
   module: {
     rules: [
@@ -32,4 +31,4 @@ module.exports = {
     publicPath: 'http://localhost:3000/dist/',
     hotOnly: true,
   },
-}
+};
