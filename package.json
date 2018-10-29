@@ -10,13 +10,15 @@
   "scripts": {
     "start": "webpack-cli --watch & live-server --open=./client/dist/index.html",
     "build": "webpack --mode production",
-    "seed": "knex migrate:latest && knex seed:run"
+    "seed": "knex migrate:latest && knex seed:run",
+    "test": "jest"
   },
   "jest": {
     "verbose": true,
     "testURL": "http://localhost/"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "express": "^4.16.4",

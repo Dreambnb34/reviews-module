@@ -4,8 +4,9 @@ const reviewsData = require('../../../faker/json/reviews/reviews');
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('listings').del()
-    .then(function () {
+  return knex('listings')
+    .del()
+    .then(function() {
       return knex('reviews').del();
     })
     .then(() => {
@@ -16,7 +17,7 @@ exports.seed = function(knex, Promise) {
       // create our promise container
       let listingPromises = [];
       listingsData.forEach(listing => {
-        listingPromises.push(createListing(knex, listing)); 
+        listingPromises.push(createListing(knex, listing));
       });
       return Promise.all(listingPromises);
     })
@@ -33,16 +34,16 @@ exports.seed = function(knex, Promise) {
       // let's grab our listings id
       return knex.select('id').from('listings');
     })
-    .then((listings) => {
+    .then(listings => {
       return listings;
     })
-    .then((listings) => {
+    .then(listings => {
       let promiseArr = [];
       promiseArr.push(listings);
       promiseArr.push(knex.select('id').from('users'));
       return Promise.all(promiseArr);
     })
-    .then((promiseArr) => {
+    .then(promiseArr => {
       let listings = promiseArr[0];
       let users = promiseArr[1];
 
@@ -57,7 +58,7 @@ exports.seed = function(knex, Promise) {
         promiseReviews.push(createReviews(knex, reviewCopy));
       });
       return Promise.all(promiseReviews);
-    })
+    });
 };
 
 const getRandomInt = (min, max) => {
@@ -71,14 +72,14 @@ const createListing = (knex, listings) => {
     lat: listings.lat,
     long: listings.long,
     neighborhoodDescription: listings.neighborhoodDescription,
-    gettingAroundDescription: listings.gettingAroundDescription
+    gettingAroundDescription: listings.gettingAroundDescription,
   });
-}
+};
 
 const createUsers = (knex, user) => {
   return knex('users').insert({
     username: user.username,
-    avatarUrl: user.avatarUrl
+    avatarUrl: user.avatarUrl,
   });
 };
 
@@ -88,12 +89,12 @@ const createReviews = (knex, review) => {
     responseText: review.responseText,
     createdAt: review.createdAt,
     accuracyRating: review.accuracyRating,
-		communicationRating: review.communicationRating,
-		cleanlinessRating: review.cleanlinessRating,
-		locationRating: review.locationRating,
-		check_In_Rating: review.check_In_Rating,
+    communicationRating: review.communicationRating,
+    cleanlinessRating: review.cleanlinessRating,
+    locationRating: review.locationRating,
+    check_In_Rating: review.check_In_Rating,
     valueRating: review.valueRating,
     userId: review.userId,
-    listingsId: review.listingsId
-  }); 
+    listingsId: review.listingsId,
+  });
 };
