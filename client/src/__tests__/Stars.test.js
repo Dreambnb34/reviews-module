@@ -67,7 +67,7 @@ describe('Stars Component', () => {
   });
   it('renders 5.0 stars', () => {
     // anything 4.9 and above is 5 stars
-    const {getAllByTestId} = render(<Stars count={4.9} />);
+    const {getAllByTestId} = render(<Stars count={4.8} />);
     const oneStar = getAllByTestId('full-star');
     expect(oneStar).toHaveLength(5);
   });
