@@ -3,9 +3,20 @@ import {render} from 'react-testing-library';
 import ReviewCount from '../components/ReviewCount/ReviewCount';
 
 describe('Review Count', () => {
-  it('renders the Review Count', () => {
-    const {queryByText} = render(<ReviewCount />);
-    const header = queryByText('Review Count');
-    expect(header.innerHTML).toBe('Review Count');
+  const mockData = {
+    reviewCount: 137,
+    averageAccuracyRating: 4,
+    averageCommunicationRating: 5,
+    averageCleanlinessRating: 3,
+    averageLocationRating: 2,
+    averageCheck_In_Rating: 1,
+    averageValueRating: 4,
+  };
+
+  it('renders the correct the review count', () => {
+    const query = '137 Reviews';
+    const {queryByText} = render(<ReviewCount {...mockData} />);
+    const reviewCountNode = queryByText(query);
+    expect(reviewCountNode.innerHTML).toBe(query);
   });
 });
