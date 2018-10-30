@@ -4,7 +4,8 @@ import React, {Component} from 'react';
 import ReviewFeed from './ReviewFeed';
 import {reviews7} from '../__mocks__/mockReviews';
 
-import Stars from './Modular/Stars/Stars';
+// import Stars from './Modular/Stars/Stars';
+import Ratings from '../components/Modular/Ratings';
 
 class App extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class App extends Component {
     return (
       <div id="App">
         {/* <ReviewFeed reviews={reviews7} /> */}
-        <Stars count={2.5} />
+        <Ratings label="Moooooo" />
       </div>
     );
   }
