@@ -4,7 +4,7 @@ import {roundHalf, returnArrStars} from './StarsLib';
 
 const Stars = ({count}) => (
   <React.Fragment>
-    <span>
+    <span data-testid="stars-container">
       {returnArrStars(roundHalf(count)).map((c, index) => {
         if (c === 1) {
           return getFullStar(index);

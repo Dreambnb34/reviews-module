@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from 'react-testing-library';
-import ReviewCount from '../components/ReviewCount/ReviewCount';
+import ReviewCount from '../components/ReviewCount';
 
 describe('Review Count', () => {
   const mockData = {
