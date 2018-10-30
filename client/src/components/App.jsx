@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import ReviewFeed from './ReviewFeed';
 import {reviews7} from '../__mocks__/mockReviews';
 
-import Stars from './Modular/Stars';
+import Stars from './Modular/Stars/Stars';
 
 class App extends Component {
   constructor(props) {

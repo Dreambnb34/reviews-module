@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from 'react-testing-library';
-import Stars from '../components/Modular/Stars';
+import Stars from '../components/Modular/Stars/Stars';
 
 describe('Stars Component', () => {
   it('renders 1.0 stars', () => {
