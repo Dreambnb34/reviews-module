@@ -1,10 +1,5 @@
 import React from 'react';
 
-/*
-span w/ inner SVG's
-path determining stars¢
-*/
-
 const fullStarStyle = {
   height: '1em',
   width: '1em',
@@ -33,8 +28,8 @@ const wrap = {
   float: 'none',
 };
 
-const getFullStar = () => (
-  <div style={wrap}>
+export const getFullStar = key => (
+  <div style={wrap} key={key}>
     <span data-testid="full-star">
       <svg
         viewBox="0 0 1000 1000"
@@ -49,8 +44,8 @@ const getFullStar = () => (
   </div>
 );
 
-const getHalfStar = () => (
-  <div style={wrap}>
+export const getHalfStar = key => (
+  <div style={wrap} key={key}>
     <span data-testid="half-star">
       <span>
         <svg
@@ -78,8 +73,8 @@ const getHalfStar = () => (
   </div>
 );
 
-const getEmptyStar = () => (
-  <div style={wrap}>
+export const getEmptyStar = key => (
+  <div style={wrap} key={key}>
     <span data-testid="empty-star">
       <svg
         viewBox="0 0 1000 1000"
@@ -93,45 +88,3 @@ const getEmptyStar = () => (
     </span>
   </div>
 );
-
-const roundHalf = count => {
-  return Math.round(count * 2) / 2;
-};
-
-const returnArrStars = count => {
-  let copyCount = count;
-  let arr = [];
-  for (let i = 0; i < 5; i++) {
-    if (copyCount <= 0) {
-      arr.push(0);
-      copyCount--;
-    } else if (copyCount >= 0.5 && copyCount < 1) {
-      arr.push(0.5);
-      copyCount--;
-    } else {
-      arr.push(1);
-      copyCount--;
-    }
-  }
-  //   arr.sort();
-  console.log('Arr Length: ', arr.length);
-  return arr;
-};
-
-const Stars = ({count}) => (
-  <React.Fragment>
-    <span>
-      {returnArrStars(roundHalf(count)).map(c => {
-        if (c === 1) {
-          return getFullStar();
-        } else if (c === 0.5) {
-          return getHalfStar();
-        } else {
-          return getEmptyStar();
-        }
-      })}
-    </span>
-  </React.Fragment>
-);
-
-export default Stars;

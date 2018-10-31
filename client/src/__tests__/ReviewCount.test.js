@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from 'react-testing-library';
-import ReviewCount from '../components/ReviewCount/ReviewCount';
+import ReviewCount from '../components/ReviewCount';
 
 describe('Review Count', () => {
   const mockData = {
@@ -18,5 +18,11 @@ describe('Review Count', () => {
     const {queryByText} = render(<ReviewCount {...mockData} />);
     const reviewCountNode = queryByText(query);
     expect(reviewCountNode.innerHTML).toBe(query);
+  });
+
+  it('renders the Stars Component', () => {
+    const {getByTestId} = render(<ReviewCount />);
+    const starsContainer = getByTestId('stars-container');
+    expect(starsContainer).not.toBeNull();
   });
 });

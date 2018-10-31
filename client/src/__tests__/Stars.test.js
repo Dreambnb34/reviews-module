@@ -1,8 +1,13 @@
 import React from 'react';
 import {render} from 'react-testing-library';
-import Stars from '../components/Modular/Stars';
+import Stars from '../components/Modular/Stars/Stars';
 
 describe('Stars Component', () => {
+  it('has a container for stars', () => {
+    const {getByTestId} = render(<Stars count={1.2} />);
+    const starContainer = getByTestId('stars-container');
+    expect(starContainer).not.toBeNull();
+  });
   it('renders 1.0 stars', () => {
     const {getAllByTestId} = render(<Stars count={1.2} />);
     const oneStar = getAllByTestId('full-star');

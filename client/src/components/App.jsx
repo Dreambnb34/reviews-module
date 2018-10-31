@@ -4,7 +4,41 @@ import React, {Component} from 'react';
 import ReviewFeed from './ReviewFeed';
 import {reviews7} from '../__mocks__/mockReviews';
 
-import Stars from './Modular/Stars';
+// import Stars from './Modular/Stars/Stars';
+import Ratings from '../components/Modular/Ratings';
+import ReviewCount from './ReviewCount';
+
+import Pagination from 'react-paginate';
+
+const testObj1 = {
+  label: 'Accuracy',
+  rating: 4.7,
+};
+
+const testObj2 = {
+  label: 'Coomunication',
+  rating: 3.5,
+};
+
+const testObj3 = {
+  label: 'Cleanliness',
+  rating: 2.5,
+};
+
+const testObj4 = {
+  label: 'Location',
+  rating: 4.6,
+};
+
+const testObj5 = {
+  label: 'Check-In',
+  rating: 4,
+};
+
+const testObj6 = {
+  label: 'Value',
+  rating: 1.6,
+};
 
 class App extends Component {
   constructor(props) {
@@ -14,11 +48,34 @@ class App extends Component {
   render() {
     return (
       <div id="App">
-        {/* <ReviewFeed reviews={reviews7} /> */}
-        <Stars count={2.5} />
+        <h1>Hello World</h1>
+        <Pagination
+          previousLabel={'previous'}
+          nextLabel={'next'}
+          breakLabel={<a href="">...</a>}
+          breakClassName={'break-me'}
+          //  pageCount={this.state.pageCount}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          //  onPageChange={this.handlePageClick}
+          containerClassName={'pagination'}
+          subContainerClassName={'pages pagination'}
+          activeClassName={'active'}
+        />
       </div>
     );
   }
 }
 
 export default App;
+
+{
+  /* <ReviewCount reviewCount={reviews7.length} rating={4.5} />
+<Ratings {...testObj1} />
+<Ratings {...testObj2} />
+<Ratings {...testObj3} />
+<Ratings {...testObj4} />
+<Ratings {...testObj5} />
+<Ratings {...testObj6} />
+<ReviewFeed reviews={reviews7} /> */
+}
