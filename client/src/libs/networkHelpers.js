@@ -1,3 +1,7 @@
 import axios from 'axios';
 
-module.exports = {};
+export default {
+  fetchReviews: listingsId => {
+    return axios.get(`/api/reviews/${listingsId}`);
+  },
+};

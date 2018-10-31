@@ -1,18 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const cors = require('cors');
-const routes = require('./routes/routes');
 const path = require('path');
+const routes = require('./routes/routes');
 
-const app = express();
-
-app.use(cors());
-app.use(bodyParser.json());
-app.use(morgan('dev'));
-
-app.use('*', routes);
-app.use(express.static(path.join(__dirname, '../client/dist/')));
+const app = express()
+  .use(bodyParser.json())
+  .use(morgan('dev'))
+  .use(express.static(path.join(__dirname, '../client/dist/')))
+  .use('/', routes);
 
 const port = process.env.PORT || 1337;
 
