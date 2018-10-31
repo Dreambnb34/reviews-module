@@ -21,7 +21,7 @@ class App extends Component {
 
   componentDidMount() {
     console.log(window.location.href);
-    network.fetchReviews('123456').then(res => {});
+    network.fetchReviews('638').then(res => {});
   }
 
   render() {

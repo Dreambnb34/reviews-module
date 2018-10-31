@@ -1,5 +1,8 @@
-// const {transaction} = require('objection');
-// const User = require('./models/users');
+const {
+  getAverageRatings,
+  getPageNumberCount,
+  getReviewObjects,
+} = require('./libs/helpers');
 
 const knex = require('knex')({
   client: 'pg',
@@ -8,19 +11,12 @@ const knex = require('knex')({
 
 const controller = {
   getReviewsById: id => {
-    // const user = knex('reviews')
-    //   .where({
-    //     listingsId: 638,
-    //   })
-    //   .select('*');
-
     const reviews = knex('reviews')
       .join('users', 'userId', '=', 'users.id')
       .select(
-        'users.id',
+        'reviews.id',
         'users.avatarUrl',
         'users.username',
-        'reviews.id',
         'reviews.reviewText',
         'reviews.responseText',
         'reviews.flagged',
@@ -28,16 +24,19 @@ const controller = {
         'reviews.accuracyRating',
         'reviews.communicationRating',
         'reviews.cleanlinessRating',
-        'locationRating',
-        'check_In_Rating',
-        'valueRating',
+        'reviews.locationRating',
+        'reviews.check_In_Rating',
+        'reviews.valueRating',
       )
       .where({
         listingsId: id,
       });
 
-    reviews.then(x => {
-      console.log(x);
+    return reviews.then(reviewArr => {
+      let retObj = getAverageRatings(reviewArr);
+      retObj.pageNumberCount = getPageNumberCount(reviewArr.length);
+      retObj.reviews = getReviewObjects(reviewArr, 3, retObj.pageNumberCount);
+      return retObj;
     });
   },
 };

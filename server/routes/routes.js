@@ -15,9 +15,9 @@ router.get('/rooms', (req, res) => {
 });
 
 router.get('/api/reviews/:listingsid', (req, res) => {
-  // let listingsid = req.params.listingsid;
-  // console.log(listingsid);
-  controller.getReviewsById(638);
+  controller.getReviewsById(req.params.listingsid).then(reviews => {
+    console.log(reviews);
+  });
 });
 
 module.exports = router;
