@@ -8,10 +8,10 @@ const containerStyle = {
 
 const RatingsContainer = ({payload}) => (
   <React.Fragment>
-    <div>
+    <div className="ratings-container">
       {payload.map((obj, index) => {
         return (
-          <div key={index}>
+          <div key={index} className="individual-ratings-div">
             <h1 />
             <Ratings label={obj.label} rating={obj.rating} />
           </div>

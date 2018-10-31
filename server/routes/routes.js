@@ -1,14 +1,12 @@
-const router = require('express').Router();
+const express = require('express');
+const path = require('path');
 const cors = require('cors');
+
+const router = express.Router();
 
 // Enable pre-flight app-wide
 router.options('*', cors());
 
-// Send index.html
-router.get('/', (req, res) => {
-  res.status(200);
-  res.set('Content-Type', 'text/html');
-  res.sendFile('index.html');
-});
+router.get('/api/reviews', (req, res) => {});
 
-export default router;
+module.exports = router;

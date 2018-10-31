@@ -55,7 +55,6 @@ class Review extends Component {
             </p>
           </h3>
         </div>
-        <br />
       </div>
     );
   }
