@@ -19,4 +19,10 @@ describe('Review Count', () => {
     const reviewCountNode = queryByText(query);
     expect(reviewCountNode.innerHTML).toBe(query);
   });
+
+  it('renders the Stars Component', () => {
+    const {getByTestId} = render(<ReviewCount />);
+    const starsContainer = getByTestId('stars-container');
+    expect(starsContainer).not.toBeNull();
+  });
 });
