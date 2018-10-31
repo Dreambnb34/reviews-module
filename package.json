@@ -1,8 +1,8 @@
 {
-  "name": "",
+  "name": "DreamBnB-Reviews-Module",
   "version": "",
-  "description": "",
-  "author": "",
+  "description": "Reviews-Module",
+  "author": "Jay Patrick De Guzman",
   "license": "",
   "engines": {
     "node": ">=6.13.0"

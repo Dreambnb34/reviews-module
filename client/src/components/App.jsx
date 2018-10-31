@@ -50,13 +50,13 @@ class App extends Component {
       <div id="App">
         <h1>Hello World</h1>
         <Pagination
-          previousLabel={'previous'}
-          nextLabel={'next'}
+          previousLabel={'<'}
+          nextLabel={'>'}
           breakLabel={<a href="">...</a>}
           breakClassName={'break-me'}
           //  pageCount={this.state.pageCount}
           marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
+          pageRangeDisplayed={2}
           //  onPageChange={this.handlePageClick}
           containerClassName={'pagination'}
           subContainerClassName={'pages pagination'}
