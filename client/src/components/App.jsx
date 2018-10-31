@@ -4,6 +4,7 @@ import ReviewCount from './ReviewCount';
 import RatingsContainer from './RatingsContainer';
 import ReviewFeed from './ReviewFeed';
 import Pagination from 'react-paginate';
+import network from '../libs/networkHelpers.js';
 
 // debugging
 import mockReturnObj from '../__mocks__/mockReturnObj.js';
@@ -16,6 +17,10 @@ class App extends Component {
       ratingsObj: null,
       reviewCountObj: null,
     };
+  }
+
+  componentDidMount() {
+    network.fetchReviews('123456').then(res => {});
   }
 
   render() {
