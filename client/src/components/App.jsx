@@ -48,19 +48,23 @@ class App extends Component {
   render() {
     return (
       <div id="App">
-        <h1>Hello World</h1>
+        <h1>Hello Worldss</h1>
         <Pagination
           previousLabel={'<'}
           nextLabel={'>'}
-          breakLabel={<a href="">...</a>}
+          breakLabel={'...'}
           breakClassName={'break-me'}
-          //  pageCount={this.state.pageCount}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={2}
+          pageCount={26}
+          marginPagesDisplayed={1}
+          pageRangeDisplayed={3}
           //  onPageChange={this.handlePageClick}
           containerClassName={'pagination'}
+          previousClassName={'previous-pagination'}
+          nextClassName={'next-pagination'}
           subContainerClassName={'pages pagination'}
           activeClassName={'active'}
+          previousLinkClassName={'previous-pagination-button'}
+          nextLinkClassName={'next-pagination-button'}
         />
       </div>
     );
