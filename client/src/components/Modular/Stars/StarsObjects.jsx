@@ -4,14 +4,14 @@ const fullStarStyle = {
   height: '1em',
   width: '1em',
   display: 'block',
-  fill: 'green',
+  fill: '#358288',
 };
 
 const halfStarStyle = {
   height: '1em',
   width: '1em',
   display: 'block',
-  fill: 'green',
+  fill: '#358288',
   position: 'absolute',
 };
 
@@ -19,7 +19,7 @@ const emptyStarStyle = {
   height: '1em',
   width: '1em',
   display: 'block',
-  fill: 'grey',
+  fill: '#D8D8D8',
 };
 
 const wrap = {

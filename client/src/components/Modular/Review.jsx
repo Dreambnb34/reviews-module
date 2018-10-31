@@ -20,15 +20,21 @@ class Review extends Component {
     const {isFullReview} = this.state;
     return (
       <div>
+        <hr size="1" />
+        <br />
         <img
+          className="review-avatar-image"
           src={avatarURL}
           height="48"
           width="48"
           data-testid="avatar-container"
         />
-        <div data-testid="username-container">{username}</div>
-        <div data-testid="createdAt-container">
-          {Moment(postDate).format('MMMM YYYY')}
+        <div data-testid="username-container" className="review-info">
+          {username}
+          <br />
+          <p className="review-createdAt">
+            {Moment(postDate).format('MMMM YYYY')}
+          </p>
         </div>
         <div data-testid="review-text-container">
           <h3>
@@ -39,14 +45,19 @@ class Review extends Component {
                     .slice(0, 278)
                     .join('')}...`
                 : reviewText}
+              {reviewText.length > 278 && !isFullReview ? (
+                <button
+                  onClick={this.showFullReview}
+                  type="button"
+                  className="read-more-button"
+                >
+                  Read more
+                </button>
+              ) : null}
             </p>
-            {reviewText.length > 278 && !isFullReview ? (
-              <button onClick={this.showFullReview} type="button">
-                Read more
-              </button>
-            ) : null}
           </h3>
         </div>
+        <br />
       </div>
     );
   }
