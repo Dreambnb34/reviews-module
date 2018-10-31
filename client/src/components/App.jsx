@@ -20,6 +20,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log(window.location.href);
     network.fetchReviews('123456').then(res => {});
   }
 
@@ -56,44 +57,3 @@ class App extends Component {
 }
 
 export default App;
-
-{
-  /* <ReviewCount reviewCount={reviews7.length} rating={4.5} />
-<Ratings {...testObj1} />
-<Ratings {...testObj2} />
-<Ratings {...testObj3} />
-<Ratings {...testObj4} />
-<Ratings {...testObj5} />
-<Ratings {...testObj6} />
-<ReviewFeed reviews={reviews7} /> */
-}
-
-// const testObj1 = {
-//   label: 'Accuracy',
-//   rating: 4.7,
-// };
-
-// const testObj2 = {
-//   label: 'Coomunication',
-//   rating: 3.5,
-// };
-
-// const testObj3 = {
-//   label: 'Cleanliness',
-//   rating: 2.5,
-// };
-
-// const testObj4 = {
-//   label: 'Location',
-//   rating: 4.6,
-// };
-
-// const testObj5 = {
-//   label: 'Check-In',
-//   rating: 4,
-// };
-
-// const testObj6 = {
-//   label: 'Value',
-//   rating: 1.6,
-// };

@@ -11,8 +11,8 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 
-app.use('*', routes);
 app.use(express.static(path.join(__dirname, '../client/dist/')));
+app.use('/', routes);
 
 const port = process.env.PORT || 1337;
 
