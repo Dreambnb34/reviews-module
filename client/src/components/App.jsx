@@ -12,7 +12,10 @@ import {reviews7} from '../__mocks__/mockReviews';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      ratingsObj: null,
+      reviewCountObj: null,
+    };
   }
 
   render() {
