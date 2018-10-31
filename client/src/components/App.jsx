@@ -1,54 +1,28 @@
 import React, {Component} from 'react';
-// import ReviewCount from './ReviewCount/ReviewCount';
-
-import ReviewFeed from './ReviewFeed';
-import {reviews7} from '../__mocks__/mockReviews';
-
-// import Stars from './Modular/Stars/Stars';
-import Ratings from '../components/Modular/Ratings';
+import helper from '../libs/appHelpers';
 import ReviewCount from './ReviewCount';
-
+import RatingsContainer from './RatingsContainer';
+import ReviewFeed from './ReviewFeed';
 import Pagination from 'react-paginate';
 
-const testObj1 = {
-  label: 'Accuracy',
-  rating: 4.7,
-};
-
-const testObj2 = {
-  label: 'Coomunication',
-  rating: 3.5,
-};
-
-const testObj3 = {
-  label: 'Cleanliness',
-  rating: 2.5,
-};
-
-const testObj4 = {
-  label: 'Location',
-  rating: 4.6,
-};
-
-const testObj5 = {
-  label: 'Check-In',
-  rating: 4,
-};
-
-const testObj6 = {
-  label: 'Value',
-  rating: 1.6,
-};
+// debugging
+import mockReturnObj from '../__mocks__/mockReturnObj.js';
+import {reviews7} from '../__mocks__/mockReviews';
 
 class App extends Component {
   constructor(props) {
     super(props);
+    this.state = {};
   }
 
   render() {
     return (
       <div id="App">
-        <h1>Hello Worldss</h1>
+        <ReviewCount {...helper.getReviewCount(50, 4.5)} />
+        <RatingsContainer
+          payload={helper.getRatingsArray(mockReturnObj.mockReturnObj)}
+        />
+        <ReviewFeed reviews={reviews7} />
         <Pagination
           previousLabel={'<'}
           nextLabel={'>'}
@@ -83,3 +57,33 @@ export default App;
 <Ratings {...testObj6} />
 <ReviewFeed reviews={reviews7} /> */
 }
+
+// const testObj1 = {
+//   label: 'Accuracy',
+//   rating: 4.7,
+// };
+
+// const testObj2 = {
+//   label: 'Coomunication',
+//   rating: 3.5,
+// };
+
+// const testObj3 = {
+//   label: 'Cleanliness',
+//   rating: 2.5,
+// };
+
+// const testObj4 = {
+//   label: 'Location',
+//   rating: 4.6,
+// };
+
+// const testObj5 = {
+//   label: 'Check-In',
+//   rating: 4,
+// };
+
+// const testObj6 = {
+//   label: 'Value',
+//   rating: 1.6,
+// };
