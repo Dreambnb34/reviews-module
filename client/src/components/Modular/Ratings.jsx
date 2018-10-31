@@ -17,7 +17,7 @@ const containerStyle = {
 };
 
 const Ratings = ({label = 'test', rating = 3.5}) => (
-  <div data-testid="ratings-container">
+  <div data-testid="ratings-container" className="ratings-component">
     <span style={labelStyle}>{label}</span>
     <Stars style={starStyle} count={rating} />
   </div>

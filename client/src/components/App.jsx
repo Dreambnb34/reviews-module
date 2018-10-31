@@ -12,34 +12,39 @@ import {reviews7} from '../__mocks__/mockReviews';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      ratingsObj: null,
+      reviewCountObj: null,
+    };
   }
 
   render() {
     return (
       <div id="App">
-        <ReviewCount {...helper.getReviewCount(50, 4.5)} />
-        <RatingsContainer
-          payload={helper.getRatingsArray(mockReturnObj.mockReturnObj)}
-        />
-        <ReviewFeed reviews={reviews7} />
-        <Pagination
-          previousLabel={'<'}
-          nextLabel={'>'}
-          breakLabel={'...'}
-          breakClassName={'break-me'}
-          pageCount={26}
-          marginPagesDisplayed={1}
-          pageRangeDisplayed={3}
-          //  onPageChange={this.handlePageClick}
-          containerClassName={'pagination'}
-          previousClassName={'previous-pagination'}
-          nextClassName={'next-pagination'}
-          subContainerClassName={'pages pagination'}
-          activeClassName={'active'}
-          previousLinkClassName={'previous-pagination-button'}
-          nextLinkClassName={'next-pagination-button'}
-        />
+        <div className="app-container">
+          <ReviewCount {...helper.getReviewCount(178, 3.5)} />
+          <RatingsContainer
+            payload={helper.getRatingsArray(mockReturnObj.mockReturnObj)}
+          />
+          <ReviewFeed reviews={reviews7} />
+          <Pagination
+            previousLabel={'<'}
+            nextLabel={'>'}
+            breakLabel={'...'}
+            breakClassName={'break-me'}
+            pageCount={26}
+            marginPagesDisplayed={1}
+            pageRangeDisplayed={2}
+            //  onPageChange={this.handlePageClick}
+            containerClassName={'pagination'}
+            previousClassName={'previous-pagination'}
+            nextClassName={'next-pagination'}
+            subContainerClassName={'pages pagination'}
+            activeClassName={'active'}
+            previousLinkClassName={'previous-pagination-button'}
+            nextLinkClassName={'next-pagination-button'}
+          />
+        </div>
       </div>
     );
   }

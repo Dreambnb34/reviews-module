@@ -6,7 +6,7 @@ const reviews7 = [
     responseText:
       'Quos rem vel at voluptate ut. Eligendi qui error perspiciatis rerum aut voluptatum earum quam id. Qui perspiciatis culpa ut rerum saepe eveniet ut nostrum. Quo praesentium reiciendis et fugit est delectus alias. Ut excepturi et eveniet dolores reiciendis et sint. Enim et aperiam totam libero distinctio aut.',
     createdAt: '2018-10-26T02:22:58.000Z',
-    username: 'Jon',
+    username: 'James',
     avatarUrl:
       'https://hrr34-jaypatrickdeguzman-fec.s3.amazonaws.com/FEC/avatar_photos/62dsfsdfsdf.jpg',
   },
@@ -17,7 +17,7 @@ const reviews7 = [
     responseText:
       'Quos rem vel at voluptate ut. Eligendi qui error perspiciatis rerum aut voluptatum earum quam id. Qui perspiciatis culpa ut rerum saepe eveniet ut nostrum. Quo praesentium reiciendis et fugit est delectus alias. Ut excepturi et eveniet dolores reiciendis et sint. Enim et aperiam totam libero distinctio aut.',
     createdAt: '2018-08-26T02:22:58.000Z',
-    username: 'Jon',
+    username: 'Jay',
     avatarUrl:
       'https://hrr34-jaypatrickdeguzman-fec.s3.amazonaws.com/FEC/avatar_photos/62dsfsdfsdf.jpg',
   },
@@ -28,7 +28,7 @@ const reviews7 = [
     responseText:
       'Quos rem vel at voluptate ut. Eligendi qui error perspiciatis rerum aut voluptatum earum quam id. Qui perspiciatis culpa ut rerum saepe eveniet ut nostrum. Quo praesentium reiciendis et fugit est delectus alias. Ut excepturi et eveniet dolores reiciendis et sint. Enim et aperiam totam libero distinctio aut.',
     createdAt: '2018-07-26T02:22:58.000Z',
-    username: 'Jon',
+    username: 'Kim',
     avatarUrl:
       'https://hrr34-jaypatrickdeguzman-fec.s3.amazonaws.com/FEC/avatar_photos/62dsfsdfsdf.jpg',
   },
@@ -39,7 +39,7 @@ const reviews7 = [
     responseText:
       'Quos rem vel at voluptate ut. Eligendi qui error perspiciatis rerum aut voluptatum earum quam id. Qui perspiciatis culpa ut rerum saepe eveniet ut nostrum. Quo praesentium reiciendis et fugit est delectus alias. Ut excepturi et eveniet dolores reiciendis et sint. Enim et aperiam totam libero distinctio aut.',
     createdAt: '2017-10-26T02:22:58.000Z',
-    username: 'Jon',
+    username: 'Steward',
     avatarUrl:
       'https://hrr34-jaypatrickdeguzman-fec.s3.amazonaws.com/FEC/avatar_photos/62dsfsdfsdf.jpg',
   },
@@ -50,7 +50,7 @@ const reviews7 = [
     responseText:
       'Quos rem vel at voluptate ut. Eligendi qui error perspiciatis rerum aut voluptatum earum quam id. Qui perspiciatis culpa ut rerum saepe eveniet ut nostrum. Quo praesentium reiciendis et fugit est delectus alias. Ut excepturi et eveniet dolores reiciendis et sint. Enim et aperiam totam libero distinctio aut.',
     createdAt: '2017-08-26T02:22:58.000Z',
-    username: 'Jon',
+    username: 'Rohan',
     avatarUrl:
       'https://hrr34-jaypatrickdeguzman-fec.s3.amazonaws.com/FEC/avatar_photos/62dsfsdfsdf.jpg',
   },
@@ -72,7 +72,7 @@ const reviews7 = [
     responseText:
       'Quos rem vel at voluptate ut. Eligendi qui error perspiciatis rerum aut voluptatum earum quam id. Qui perspiciatis culpa ut rerum saepe eveniet ut nostrum. Quo praesentium reiciendis et fugit est delectus alias. Ut excepturi et eveniet dolores reiciendis et sint. Enim et aperiam totam libero distinctio aut.',
     createdAt: '2015-10-26T02:22:58.000Z',
-    username: 'Jon',
+    username: 'Mason',
     avatarUrl:
       'https://hrr34-jaypatrickdeguzman-fec.s3.amazonaws.com/FEC/avatar_photos/62dsfsdfsdf.jpg',
   },

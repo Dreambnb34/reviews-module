@@ -19,8 +19,7 @@ class Review extends Component {
     const {username, postDate, avatarURL, reviewText = ''} = this.props;
     const {isFullReview} = this.state;
     return (
-      <div>
-        <hr size="1" />
+      <div className="review-class">
         <br />
         <img
           className="review-avatar-image"
@@ -30,13 +29,12 @@ class Review extends Component {
           data-testid="avatar-container"
         />
         <div data-testid="username-container" className="review-info">
-          {username}
-          <br />
-          <p className="review-createdAt">
+          <h3>{username}</h3>
+          <p className="review-createdAt" data-testid="createdAt-container">
             {Moment(postDate).format('MMMM YYYY')}
           </p>
         </div>
-        <div data-testid="review-text-container">
+        <div data-testid="review-text-container" className="review-font">
           <h3>
             <p>
               {reviewText.length > 278 && !isFullReview
@@ -57,7 +55,6 @@ class Review extends Component {
             </p>
           </h3>
         </div>
-        <br />
       </div>
     );
   }
