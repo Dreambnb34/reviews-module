@@ -8,23 +8,25 @@ module.exports.getAverageRatings = ratingsObjArr => {
     valueRating: 0,
   };
 
+  // console.log(ratingsObjArr);
   return ratingsObjArr.reduce((mainObj, obj, index, array) => {
     if (index === array.length - 1) {
       for (key in mainObj) {
         mainObj[key] += obj[key];
+        // console.log(mainObj[key]);
       }
 
       // initialize a totalAverage count in our mainObj
       let totalAverage = 0;
 
       for (key in mainObj) {
-        mainObj[key] /= array.length;
+        mainObj[key] = mainObj[key] / array.length;
         mainObj[key] = +mainObj[key].toFixed(1);
         totalAverage += mainObj[key];
       }
       // we divide by 6 to get our total average of all ratings
-      mainObj.totalAverage = totalAverage / 6;
-
+      mainObj.totalAverage = +(totalAverage / 6).toFixed(1);
+      // console.log(mainObj);
       return mainObj;
     } else {
       for (key in mainObj) {
