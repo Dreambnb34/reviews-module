@@ -6,16 +6,16 @@ import ReviewFeed from './ReviewFeed';
 import Pagination from 'react-paginate';
 import network from '../libs/networkHelpers.js';
 
-// debugging
-import mockReturnObj from '../__mocks__/mockReturnObj.js';
-import {reviews7} from '../__mocks__/mockReviews';
+// TODO caching data
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       reviews: null,
+      page: 1,
     };
+    this.onPageChange = this.onPageChange.bind(this);
   }
 
   componentDidMount() {
@@ -26,7 +26,7 @@ class App extends Component {
   getInitialReviews() {
     const listingsId = window.location.href.split('rooms/')[1];
     console.log(listingsId);
-    network.fetchReviews(listingsId).then(res => {
+    network.fetchReviews(listingsId, this.state.page).then(res => {
       const reviews = res.data;
       this.setReviews(reviews);
     });
@@ -37,7 +37,26 @@ class App extends Component {
     this.setState({reviews});
   }
 
+  onPageChange(page) {
+    const listingsId = window.location.href.split('rooms/')[1];
+    let mainPage = page.selected + 1;
+    console.log(mainPage);
+    network.fetchReviews(listingsId, mainPage).then(res => {
+      const reviews = res.data;
+      this.setReviews(reviews);
+    });
+  }
+
+  scrollUp() {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }
+
   render() {
+    this.scrollUp();
     {
       return this.state.reviews === null ? (
         <div>Loading...</div>
@@ -62,7 +81,7 @@ class App extends Component {
               pageCount={this.state.reviews.pageNumberCount}
               marginPagesDisplayed={1}
               pageRangeDisplayed={2}
-              //  onPageChange={this.handlePageClick}
+              onPageChange={this.onPageChange}
               containerClassName={'pagination'}
               previousClassName={'previous-pagination'}
               nextClassName={'next-pagination'}

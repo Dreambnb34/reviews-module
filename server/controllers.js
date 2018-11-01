@@ -10,7 +10,7 @@ const knex = require('knex')({
 });
 
 const controller = {
-  getReviewsById: id => {
+  getReviewsById: (id, page) => {
     const reviews = knex('reviews')
       .join('users', 'userId', '=', 'users.id')
       .select(
@@ -36,7 +36,11 @@ const controller = {
       let retObj = getAverageRatings(reviewArr);
       let reviewCount = reviewArr.length;
       retObj.pageNumberCount = getPageNumberCount(reviewCount);
-      retObj.reviews = getReviewObjects(reviewArr, 1, retObj.pageNumberCount);
+      retObj.reviews = getReviewObjects(
+        reviewArr,
+        page,
+        retObj.pageNumberCount,
+      );
       retObj.reviewCount = reviewCount;
       return retObj;
     });

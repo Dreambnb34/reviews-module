@@ -14,13 +14,16 @@ router.get('/rooms/*', (req, res) => {
     .sendFile('index.html', {root: path.join(__dirname, '../../client/dist')});
 });
 
-router.get('/api/reviews/:listingsid', (req, res) => {
-  controller.getReviewsById(req.params.listingsid).then(reviews => {
-    res
-      .status(200)
-      .set('Content-Type', 'application/json')
-      .send(JSON.stringify(reviews));
-  });
+router.get('/api/reviews/:listingsid/:pageNumber', (req, res) => {
+  controller
+    .getReviewsById(req.params.listingsid, req.params.pageNumber)
+    .then(reviews => {
+      // console.log(reviews);
+      res
+        .status(200)
+        .set('Content-Type', 'application/json')
+        .send(JSON.stringify(reviews));
+    });
 });
 
 module.exports = router;
