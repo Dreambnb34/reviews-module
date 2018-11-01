@@ -16,7 +16,10 @@ router.get('/rooms', (req, res) => {
 
 router.get('/api/reviews/:listingsid', (req, res) => {
   controller.getReviewsById(req.params.listingsid).then(reviews => {
-    console.log(reviews);
+    res
+      .status(200)
+      .set('Content-Type', 'application/json')
+      .send(JSON.stringify(reviews));
   });
 });
 
