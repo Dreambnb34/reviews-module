@@ -7,7 +7,7 @@ import Pagination from 'react-paginate';
 import network from '../libs/networkHelpers.js';
 
 // TODO caching data
-
+// TODO
 class App extends Component {
   constructor(props) {
     super(props);
