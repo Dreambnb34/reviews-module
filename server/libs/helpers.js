@@ -23,7 +23,7 @@ module.exports.getAverageRatings = ratingsObjArr => {
         totalAverage += mainObj[key];
       }
       // we divide by 6 to get our total average of all ratings
-      mainObj.totalAverage = totalAverage / 6;
+      mainObj.totalAverage = +(totalAverage / 6).toFixed(1);
 
       return mainObj;
     } else {

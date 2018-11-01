@@ -7,7 +7,7 @@ const routes = require('./routes/routes');
 const app = express()
   .use(bodyParser.json())
   .use(morgan('dev'))
-  .use(express.static(path.join(__dirname, '../client/dist/')))
+  .use('/rooms', express.static(path.join(__dirname, '../client/dist/')))
   .use('/', routes);
 
 const port = process.env.PORT || 1337;

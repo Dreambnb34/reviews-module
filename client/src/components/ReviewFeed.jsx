@@ -13,7 +13,7 @@ class ReviewFeed extends Component {
         {reviews.map(review => {
           return (
             <Review
-              key={review.reviewID}
+              key={review.id}
               username={review.username}
               postDate={review.createdAt}
               reviewText={review.reviewText}

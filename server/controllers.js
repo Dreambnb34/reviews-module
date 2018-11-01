@@ -34,8 +34,10 @@ const controller = {
 
     return reviews.then(reviewArr => {
       let retObj = getAverageRatings(reviewArr);
-      retObj.pageNumberCount = getPageNumberCount(reviewArr.length);
-      retObj.reviews = getReviewObjects(reviewArr, 3, retObj.pageNumberCount);
+      let reviewCount = reviewArr.length;
+      retObj.pageNumberCount = getPageNumberCount(reviewCount);
+      retObj.reviews = getReviewObjects(reviewArr, 1, retObj.pageNumberCount);
+      retObj.reviewCount = reviewCount;
       return retObj;
     });
   },

@@ -7,7 +7,7 @@ const router = require('express').Router();
 // Enable pre-flight app-wide
 router.options('*', cors());
 
-router.get('/rooms', (req, res) => {
+router.get('/rooms/*', (req, res) => {
   console.log('here');
   res
     .status(200)

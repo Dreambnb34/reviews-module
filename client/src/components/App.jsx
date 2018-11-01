@@ -14,45 +14,67 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ratingsObj: null,
-      reviewCountObj: null,
+      reviews: null,
     };
   }
 
   componentDidMount() {
     console.log(window.location.href);
-    network.fetchReviews('638').then(res => {});
+    this.getInitialReviews();
+  }
+
+  getInitialReviews() {
+    const listingsId = window.location.href.split('rooms/')[1];
+    console.log(listingsId);
+    network.fetchReviews(listingsId).then(res => {
+      const reviews = res.data;
+      this.setReviews(reviews);
+    });
+  }
+
+  setReviews(reviews) {
+    console.log(reviews);
+    this.setState({reviews});
   }
 
   render() {
-    return (
-      <div id="App">
-        <div className="app-container">
-          <ReviewCount {...helper.getReviewCount(178, 3.5)} />
-          <RatingsContainer
-            payload={helper.getRatingsArray(mockReturnObj.mockReturnObj)}
-          />
-          <ReviewFeed reviews={reviews7} />
-          <Pagination
-            previousLabel={'<'}
-            nextLabel={'>'}
-            breakLabel={'...'}
-            breakClassName={'break-me'}
-            pageCount={26}
-            marginPagesDisplayed={1}
-            pageRangeDisplayed={2}
-            //  onPageChange={this.handlePageClick}
-            containerClassName={'pagination'}
-            previousClassName={'previous-pagination'}
-            nextClassName={'next-pagination'}
-            subContainerClassName={'pages pagination'}
-            activeClassName={'active'}
-            previousLinkClassName={'previous-pagination-button'}
-            nextLinkClassName={'next-pagination-button'}
-          />
+    {
+      return this.state.reviews === null ? (
+        <div>Loading...</div>
+      ) : (
+        <div id="App">
+          <div className="app-container">
+            <ReviewCount
+              {...helper.getReviewCount(
+                this.state.reviews.reviewCount,
+                this.state.reviews.totalAverage,
+              )}
+            />
+            <RatingsContainer
+              payload={helper.getRatingsArray(this.state.reviews)}
+            />
+            <ReviewFeed reviews={this.state.reviews.reviews} />
+            <Pagination
+              previousLabel={'<'}
+              nextLabel={'>'}
+              breakLabel={'...'}
+              breakClassName={'break-me'}
+              pageCount={this.state.reviews.pageNumberCount}
+              marginPagesDisplayed={1}
+              pageRangeDisplayed={2}
+              //  onPageChange={this.handlePageClick}
+              containerClassName={'pagination'}
+              previousClassName={'previous-pagination'}
+              nextClassName={'next-pagination'}
+              subContainerClassName={'pages pagination'}
+              activeClassName={'active'}
+              previousLinkClassName={'previous-pagination-button'}
+              nextLinkClassName={'next-pagination-button'}
+            />
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 
