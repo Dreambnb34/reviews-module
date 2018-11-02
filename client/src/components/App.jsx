@@ -45,6 +45,8 @@ class App extends Component {
     });
   }
 
+  onPageSearch() {}
+
   scrollUp() {
     window.scrollTo({
       top: 0,
@@ -52,8 +54,6 @@ class App extends Component {
       behavior: 'smooth',
     });
   }
-
-  onPageSearch() {}
 
   render() {
     this.scrollUp();

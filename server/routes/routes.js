@@ -14,9 +14,27 @@ router.get('/rooms/*', (req, res) => {
     .sendFile('index.html', {root: path.join(__dirname, '../../client/dist')});
 });
 
+// Get reviews
 router.get('/api/reviews/:listingsid/:pageNumber', (req, res) => {
   controller
     .getReviewsById(req.params.listingsid, req.params.pageNumber)
+    .then(reviews => {
+      // console.log(reviews);
+      res
+        .status(200)
+        .set('Content-Type', 'application/json')
+        .send(JSON.stringify(reviews));
+    });
+});
+
+// Get reviews by a specific search term
+router.get('/api/reviews/:listingsid/:pageNumber/:searchTerm', (req, res) => {
+  controller
+    .getReviewsByIdSearch(
+      req.params.listingsid,
+      req.params.pageNumber,
+      req.params.searchTerm,
+    )
     .then(reviews => {
       console.log(reviews);
       res

@@ -8,12 +8,10 @@ module.exports.getAverageRatings = ratingsObjArr => {
     valueRating: 0,
   };
 
-  // console.log(ratingsObjArr);
   return ratingsObjArr.reduce((mainObj, obj, index, array) => {
     if (index === array.length - 1) {
       for (key in mainObj) {
         mainObj[key] += obj[key];
-        // console.log(mainObj[key]);
       }
 
       // initialize a totalAverage count in our mainObj
@@ -26,7 +24,6 @@ module.exports.getAverageRatings = ratingsObjArr => {
       }
       // we divide by 6 to get our total average of all ratings
       mainObj.totalAverage = +(totalAverage / 6).toFixed(1);
-      // console.log(mainObj);
       return mainObj;
     } else {
       for (key in mainObj) {
