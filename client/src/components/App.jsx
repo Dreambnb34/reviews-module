@@ -59,7 +59,9 @@ class App extends Component {
       ) : (
         <div id="App">
           <div className="app-container">
-            <ReviewCount {...this.state.reviews} />
+            <div className="grid-count-search">
+              <ReviewCount {...this.state.reviews} />
+            </div>
             <RatingsContainer payload={getRatingsArray(this.state.reviews)} />
             <ReviewFeed reviews={this.state.reviews.reviews} />
             <Pagination
