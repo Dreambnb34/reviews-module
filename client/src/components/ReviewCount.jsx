@@ -10,9 +10,7 @@ const tempStyle = {
 const ReviewCount = ({reviewCount, totalAverage}) => (
   <React.Fragment>
     <div className="review-count">
-      <h1 className="review-count" style={tempStyle}>
-        {reviewCount} Reviews
-      </h1>
+      <h1 style={tempStyle}>{reviewCount} Reviews</h1>
       <Stars count={totalAverage} />
     </div>
   </React.Fragment>

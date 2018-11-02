@@ -1,10 +1,9 @@
 import axios from 'axios';
 
 export default {
-  fetchReviews: (listingsId, page) => {
-    return axios.get(`/api/reviews/${listingsId}/${page}`);
-  },
-  fetchReviewsBySearch: (listingsId, page, searchTerm) => {
-    return axios.get(`/api/reviews/${listingsId}/${page}/${searchTerm}`);
+  fetchReviews: (listingsId, page, searchTerm) => {
+    return searchTerm === undefined
+      ? axios.get(`/api/reviews/${listingsId}/${page}`)
+      : axios.get(`/api/reviews/${listingsId}/${page}/${searchTerm}`);
   },
 };
