@@ -38,6 +38,7 @@ class App extends Component {
   }
 
   getInitialReviews() {
+    this.setState({reviewState: 'NormalReviews'});
     network.fetchReviews(this.state.listingsId, this.state.page).then(res => {
       const reviews = res.data;
       this.setAllInformation(reviews);
@@ -127,9 +128,15 @@ class App extends Component {
               />
             ) : (
               <div className="search-information">
-                <p>
+                <p className="search-information-sentence">
                   {this.state.reviews.searchReviewCount} guests have mentioned{' '}
                   <b className="search-term">"{this.state.searchTerm}"</b>
+                </p>
+                <p
+                  className="back-to-all-reviews"
+                  onClick={() => this.getInitialReviews()}
+                >
+                  Back to all reviews
                 </p>
               </div>
             )}

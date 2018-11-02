@@ -32,6 +32,7 @@ class Search extends Component {
 
       // From props up top, start search
       this.props.onPageSearch(this.state.value);
+      this.setState({value: ''});
     }
   }
 
