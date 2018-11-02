@@ -15,6 +15,7 @@ class App extends Component {
       page: 1,
     };
     this.onPageChange = this.onPageChange.bind(this);
+    this.onPageSearch = this.onPageSearch.bind(this);
   }
 
   componentDidMount() {
@@ -51,6 +52,8 @@ class App extends Component {
       behavior: 'smooth',
     });
   }
+
+  onPageSearch() {}
 
   render() {
     this.scrollUp();
