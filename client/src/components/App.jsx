@@ -3,6 +3,7 @@ import {getRatingsArray} from '../libs/appHelpers';
 import ReviewCount from './ReviewCount';
 import RatingsContainer from './RatingsContainer';
 import ReviewFeed from './ReviewFeed';
+import Search from './Search';
 import Pagination from 'react-paginate';
 import network from '../libs/networkHelpers.js';
 
@@ -61,6 +62,7 @@ class App extends Component {
           <div className="app-container">
             <div className="grid-count-search">
               <ReviewCount {...this.state.reviews} />
+              <Search />
             </div>
             <RatingsContainer payload={getRatingsArray(this.state.reviews)} />
             <ReviewFeed reviews={this.state.reviews.reviews} />
