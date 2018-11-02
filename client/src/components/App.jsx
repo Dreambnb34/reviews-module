@@ -128,10 +128,17 @@ class App extends Component {
               />
             ) : (
               <div className="search-information">
-                <p className="search-information-sentence">
-                  {this.state.reviews.searchReviewCount} guests have mentioned{' '}
-                  <b className="search-term">"{this.state.searchTerm}"</b>
-                </p>
+                {this.state.reviews.searchReviewCount > 0 ? (
+                  <p className="search-information-sentence">
+                    {this.state.reviews.searchReviewCount} guests have mentioned{' '}
+                    <b className="search-term">"{this.state.searchTerm}"</b>
+                  </p>
+                ) : (
+                  <p className="search-information-sentence">
+                    No guests have mentioned{' '}
+                    <b className="search-term">"{this.state.searchTerm}"</b>
+                  </p>
+                )}
                 <p
                   className="back-to-all-reviews"
                   onClick={() => this.getInitialReviews()}
