@@ -12,7 +12,9 @@ class App extends Component {
     super(props);
     this.state = {
       reviews: null,
+      listingsId: window.location.href.split('rooms/')[1],
       page: 1,
+      reviewState: 'NormalReviews',
     };
     this.onPageChange = this.onPageChange.bind(this);
     this.onPageSearch = this.onPageSearch.bind(this);
@@ -23,8 +25,7 @@ class App extends Component {
   }
 
   getInitialReviews() {
-    const listingsId = window.location.href.split('rooms/')[1];
-    network.fetchReviews(listingsId, this.state.page).then(res => {
+    network.fetchReviews(this.state.listingsId, this.state.page).then(res => {
       const reviews = res.data;
       this.setReviews(reviews);
     });
@@ -36,16 +37,17 @@ class App extends Component {
   }
 
   onPageChange(page) {
-    const listingsId = window.location.href.split('rooms/')[1];
     let mainPage = page.selected + 1;
-    console.log(mainPage);
-    network.fetchReviews(listingsId, mainPage).then(res => {
+    network.fetchReviews(this.state.listingsId, mainPage).then(res => {
       const reviews = res.data;
       this.setReviews(reviews);
     });
   }
 
-  onPageSearch() {}
+  onPageSearch(searchTerm, page) {
+    console.log(`You have searched "${searchTerm}"`);
+    // network call
+  }
 
   scrollUp() {
     window.scrollTo({
@@ -65,7 +67,7 @@ class App extends Component {
           <div className="app-container">
             <div className="grid-count-search">
               <ReviewCount {...this.state.reviews} />
-              <Search />
+              <Search onPageSearch={this.onPageSearch} />
             </div>
             <RatingsContainer payload={getRatingsArray(this.state.reviews)} />
             <ReviewFeed reviews={this.state.reviews.reviews} />
