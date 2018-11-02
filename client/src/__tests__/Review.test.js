@@ -59,22 +59,6 @@ describe('Individual Review Component', () => {
     expect(reviewTextNode.innerHTML).toBe(mockData.reviewText);
   });
 
-  it('only shows up to the 278th character in the review', () => {
-    const mockData = {
-      reviewText:
-        'Totam natus est nam accusamus nobis vero soluta ut eum. Et quos laudantium molestiae. Ut nam atque. Tempora iusto sit corrupti deleniti aut voluptatibus non cumque fugiat. Aut enim optio adipisci officiis. Quos voluptatem reiciendis distinctio rerum quas sint.Consectetur laboriosam illum facilis. Doloremque sed sed architecto ea. Consequatur quis vero laudantium ut. Quasi dolorem ea sint qui voluptas est quae autem quas. Deserunt doloribus sunt dolore autem ut consectetur nemo non itaque.Et rerum vitae adipisci quia sed vel. Repellendus qui quam odio autem. Quod dolores enim quod saepe ratione dolores. Est quo magni iusto eos voluptas et nihil qui ab. Laudantium facilis error quia corrupti quae rerum porro dolor.',
-    };
-
-    const shortReviewText =
-      mockData.reviewText
-        .split('')
-        .slice(0, 278)
-        .join('') + '...';
-    const {getByText} = render(<Review reviewText={mockData.reviewText} />);
-    const reviewTextNode = getByText(shortReviewText);
-    expect(reviewTextNode.innerHTML).toBe(shortReviewText);
-  });
-
   it(`should NOT show 'Read More' button when review text is less than 278 character`, () => {
     const {queryByText} = render(<Review reviewText={mockData.reviewText} />);
     const readMoreButton = queryByText('Read more');

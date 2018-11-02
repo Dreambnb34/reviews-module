@@ -18,7 +18,7 @@ router.get('/api/reviews/:listingsid/:pageNumber', (req, res) => {
   controller
     .getReviewsById(req.params.listingsid, req.params.pageNumber)
     .then(reviews => {
-      // console.log(reviews);
+      console.log(reviews);
       res
         .status(200)
         .set('Content-Type', 'application/json')

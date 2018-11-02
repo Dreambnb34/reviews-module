@@ -1,10 +1,4 @@
 module.exports = {
-  getReviewCount: (count, average) => {
-    return {
-      reviewCount: count,
-      rating: average,
-    };
-  },
   getRatingsArray: obj => {
     return [
       {label: 'Accuracy', rating: obj.accuracyRating},
