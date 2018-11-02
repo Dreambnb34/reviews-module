@@ -11,7 +11,7 @@ const RatingsContainer = ({payload}) => (
     <div className="ratings-container">
       {payload.map((obj, index) => {
         return (
-          <div key={index} className="individual-ratings-div">
+          <div key={index} className={`individual-ratings-div-${index}`}>
             <h1 />
             <Ratings label={obj.label} rating={obj.rating} />
           </div>

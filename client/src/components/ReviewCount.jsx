@@ -7,13 +7,13 @@ const tempStyle = {
   border: 'none',
 };
 
-const ReviewCount = ({reviewCount, rating}) => (
+const ReviewCount = ({reviewCount, totalAverage}) => (
   <React.Fragment>
     <div className="review-count">
       <h1 className="review-count" style={tempStyle}>
         {reviewCount} Reviews
       </h1>
-      <Stars count={rating} />
+      <Stars count={totalAverage} />
     </div>
   </React.Fragment>
 );
