@@ -5,16 +5,12 @@ import lib from '../libs/networkHelpers.js';
 import {mockReturnObj} from '../__mocks__/mockReturnObj';
 
 describe('App', () => {
-  // jest.spyOn(lib, 'fetchReviews');
-  // lib.fetchReviews = jest.fn(() => {
-  //   Promise.resolve(mockReturnObj);
-  // });
+  // Set the URL to be a specific EP
+  // window.history.pushState({}, 'Test Title', '/test.html?query=true');
 
-  it('renders the App', () => {
+  it('loads at the beginning', () => {
     const {getByText} = render(<App />);
-    const node = getByText('202 Reviews');
-    expect(node).not.toBeNull();
+    const loadingNode = getByText('Loading...');
+    expect(loadingNode).not.toBeNull();
   });
-
-  it('renders the Review Count Component', () => {});
 });

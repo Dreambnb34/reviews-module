@@ -56,7 +56,7 @@ class Review extends Component {
             key={i}
             style={
               part.toLowerCase() === higlight.toLowerCase()
-                ? {fontWeight: '900', fontSize: '1.19em'}
+                ? {fontWeight: '900', fontSize: '1.15em'}
                 : {}
             }
           >

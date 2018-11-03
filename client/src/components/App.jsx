@@ -47,7 +47,6 @@ class App extends Component {
   }
 
   setAllInformation(reviews) {
-    console.log(reviews);
     this.setState({
       reviews: reviews,
       reviewCount: reviews.reviewCount,
