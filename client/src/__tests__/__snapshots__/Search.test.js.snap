@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Component renders the search component 1`] = `
+<div
+  class="search-container"
+>
+  <form>
+    <input
+      class="search-form"
+      placeholder="Search reviews"
+      type="text"
+      value=""
+    />
+  </form>
+</div>
+`;
