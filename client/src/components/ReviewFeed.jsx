@@ -18,6 +18,8 @@ class ReviewFeed extends Component {
               postDate={review.createdAt}
               reviewText={review.reviewText}
               avatarURL={review.avatarUrl}
+              getReviewState={this.props.getReviewState}
+              searchTerm={this.props.searchTerm}
             />
           );
         })}

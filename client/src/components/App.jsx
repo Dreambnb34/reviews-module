@@ -11,11 +11,27 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      listingsId: window.location.href.split('rooms/')[1],
+      searchTerm: '',
       reviews: null,
+      searchReviews: null,
       page: 1,
+      reviewState: 'NormalReviews',
+      reviewCount: null,
+      accuracyRating: null,
+      check_In_Rating: null,
+      cleanlinessRating: null,
+      communicationRating: null,
+      locationRating: null,
+      valueRating: null,
+      totalAverage: null,
     };
+
+    this.setAllInformation = this.setAllInformation.bind(this);
+    this.setReviews = this.setReviews.bind(this);
     this.onPageChange = this.onPageChange.bind(this);
     this.onPageSearch = this.onPageSearch.bind(this);
+    this.getReviewState = this.getReviewState.bind(this);
   }
 
   componentDidMount() {
@@ -23,29 +39,63 @@ class App extends Component {
   }
 
   getInitialReviews() {
-    const listingsId = window.location.href.split('rooms/')[1];
-    network.fetchReviews(listingsId, this.state.page).then(res => {
+    this.setState({reviewState: 'NormalReviews'});
+    network.fetchReviews(this.state.listingsId, this.state.page).then(res => {
       const reviews = res.data;
-      this.setReviews(reviews);
+      this.setAllInformation(reviews);
+    });
+  }
+
+  setAllInformation(reviews) {
+    console.log(reviews);
+    this.setState({
+      reviews: reviews,
+      reviewCount: reviews.reviewCount,
+      accuracyRating: reviews.accuracyRating,
+      check_In_Rating: reviews.check_In_Rating,
+      cleanlinessRating: reviews.cleanlinessRating,
+      communicationRating: reviews.communicationRating,
+      locationRating: reviews.locationRating,
+      valueRating: reviews.valueRating,
+      totalAverage: reviews.totalAverage,
     });
   }
 
   setReviews(reviews) {
-    console.log(reviews);
     this.setState({reviews});
   }
 
   onPageChange(page) {
-    const listingsId = window.location.href.split('rooms/')[1];
     let mainPage = page.selected + 1;
-    console.log(mainPage);
-    network.fetchReviews(listingsId, mainPage).then(res => {
-      const reviews = res.data;
-      this.setReviews(reviews);
-    });
+    if (this.state.reviewState === 'NormalReviews') {
+      network.fetchReviews(this.state.listingsId, mainPage).then(res => {
+        const reviews = res.data;
+        this.setReviews(reviews);
+      });
+    } else {
+      network
+        .fetchReviews(this.state.listingsId, mainPage, this.state.searchTerm)
+        .then(res => {
+          const reviews = res.data;
+          this.setReviews(reviews);
+        });
+    }
   }
 
-  onPageSearch() {}
+  onPageSearch(searchTerm, page) {
+    console.log(`You have searched "${searchTerm}"`);
+    this.setState(
+      {searchTerm: searchTerm, reviewState: 'SearchedReviews'},
+      () => {
+        // network call
+        this.onPageChange({selected: 0});
+      },
+    );
+  }
+
+  getReviewState() {
+    return this.state.reviewState;
+  }
 
   scrollUp() {
     window.scrollTo({
@@ -64,11 +114,49 @@ class App extends Component {
         <div id="App">
           <div className="app-container">
             <div className="grid-count-search">
-              <ReviewCount {...this.state.reviews} />
-              <Search />
+              <ReviewCount
+                reviewCount={this.state.reviewCount}
+                totalAverage={this.state.totalAverage}
+              />
+              <Search onPageSearch={this.onPageSearch} />
             </div>
-            <RatingsContainer payload={getRatingsArray(this.state.reviews)} />
-            <ReviewFeed reviews={this.state.reviews.reviews} />
+            {this.state.reviewState === 'NormalReviews' ? (
+              <RatingsContainer
+                payload={getRatingsArray({
+                  accuracyRating: this.state.accuracyRating,
+                  check_In_Rating: this.state.check_In_Rating,
+                  cleanlinessRating: this.state.cleanlinessRating,
+                  communicationRating: this.state.communicationRating,
+                  locationRating: this.state.locationRating,
+                  valueRating: this.state.valueRating,
+                })}
+              />
+            ) : (
+              <div className="search-information">
+                {this.state.reviews.searchReviewCount > 0 ? (
+                  <p className="search-information-sentence">
+                    {this.state.reviews.searchReviewCount} guests have mentioned{' '}
+                    <b className="search-term">"{this.state.searchTerm}"</b>
+                  </p>
+                ) : (
+                  <p className="search-information-sentence">
+                    No guests have mentioned{' '}
+                    <b className="search-term">"{this.state.searchTerm}"</b>
+                  </p>
+                )}
+                <p
+                  className="back-to-all-reviews"
+                  onClick={() => this.getInitialReviews()}
+                >
+                  Back to all reviews
+                </p>
+              </div>
+            )}
+            <ReviewFeed
+              reviews={this.state.reviews.reviews}
+              getReviewState={this.getReviewState}
+              searchTerm={this.state.searchTerm}
+            />
             <Pagination
               previousLabel={'<'}
               nextLabel={'>'}

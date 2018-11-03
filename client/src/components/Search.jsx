@@ -29,9 +29,10 @@ class Search extends Component {
   handleKeyPress(e) {
     if (e.key === 'Enter') {
       e.preventDefault();
-      console.log(`You have searched ${this.state.value}`);
+
       // From props up top, start search
-      // once promise is done, empty out term
+      this.props.onPageSearch(this.state.value);
+      this.setState({value: ''});
     }
   }
 
