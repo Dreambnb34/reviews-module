@@ -31,6 +31,7 @@ class App extends Component {
     this.setReviews = this.setReviews.bind(this);
     this.onPageChange = this.onPageChange.bind(this);
     this.onPageSearch = this.onPageSearch.bind(this);
+    this.getReviewState = this.getReviewState.bind(this);
   }
 
   componentDidMount() {
@@ -92,6 +93,10 @@ class App extends Component {
     );
   }
 
+  getReviewState() {
+    return this.state.reviewState;
+  }
+
   scrollUp() {
     window.scrollTo({
       top: 0,
@@ -147,7 +152,11 @@ class App extends Component {
                 </p>
               </div>
             )}
-            <ReviewFeed reviews={this.state.reviews.reviews} />
+            <ReviewFeed
+              reviews={this.state.reviews.reviews}
+              getReviewState={this.getReviewState}
+              searchTerm={this.state.searchTerm}
+            />
             <Pagination
               previousLabel={'<'}
               nextLabel={'>'}

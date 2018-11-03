@@ -9,10 +9,62 @@ class Review extends Component {
     };
 
     this.showFullReview = this.showFullReview.bind(this);
+    this.getHighlightedText = this.getHighlightedText.bind(this);
   }
 
   showFullReview() {
     this.setState({isFullReview: true});
+  }
+
+  getReview() {
+    const {reviewText = ''} = this.props;
+    const {isFullReview} = this.state;
+
+    if (this.props.getReviewState() === 'NormalReviews') {
+      return (
+        <p>
+          {reviewText.length > 278 && !isFullReview
+            ? `${reviewText
+                .split('')
+                .slice(0, 278)
+                .join('')}...`
+            : reviewText}
+          {reviewText.length > 278 && !isFullReview ? (
+            <button
+              onClick={this.showFullReview}
+              type="button"
+              className="read-more-button"
+            >
+              Read more
+            </button>
+          ) : null}
+        </p>
+      );
+    } else {
+      return this.getHighlightedText(reviewText, this.props.searchTerm);
+    }
+  }
+
+  getHighlightedText(text, higlight) {
+    // Split on higlight term and include term into parts, ignore case
+    let parts = text.split(new RegExp(`(${higlight})`, 'gi'));
+    return (
+      <span>
+        {' '}
+        {parts.map((part, i) => (
+          <span
+            key={i}
+            style={
+              part.toLowerCase() === higlight.toLowerCase()
+                ? {fontWeight: '900', fontSize: '1.12em'}
+                : {}
+            }
+          >
+            {part}
+          </span>
+        ))}{' '}
+      </span>
+    );
   }
 
   render() {
@@ -35,25 +87,7 @@ class Review extends Component {
           </p>
         </div>
         <div data-testid="review-text-container" className="review-font">
-          <h3>
-            <p>
-              {reviewText.length > 278 && !isFullReview
-                ? `${reviewText
-                    .split('')
-                    .slice(0, 278)
-                    .join('')}...`
-                : reviewText}
-              {reviewText.length > 278 && !isFullReview ? (
-                <button
-                  onClick={this.showFullReview}
-                  type="button"
-                  className="read-more-button"
-                >
-                  Read more
-                </button>
-              ) : null}
-            </p>
-          </h3>
+          <h3>{this.getReview()}</h3>
         </div>
       </div>
     );
