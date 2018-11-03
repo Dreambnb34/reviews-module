@@ -38,6 +38,7 @@ const controller = {
         retObj.pageNumberCount,
       );
       retObj.searchReviewCount = reviewCount;
+      console.log(retObj);
       return retObj;
     });
   },

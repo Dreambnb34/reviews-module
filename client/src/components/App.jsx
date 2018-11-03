@@ -41,6 +41,7 @@ class App extends Component {
   getInitialReviews() {
     this.setState({reviewState: 'NormalReviews'});
     network.fetchReviews(this.state.listingsId, this.state.page).then(res => {
+      console.log(res);
       const reviews = res.data;
       this.setAllInformation(reviews);
     });
