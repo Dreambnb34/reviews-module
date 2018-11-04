@@ -9,4 +9,20 @@ module.exports = {
       {label: 'Value', rating: obj.valueRating},
     ];
   },
+
+  isBrowser: () => {
+    const isInBrowser = new Function(
+      'try {return this===window;}catch(e){ return false;}',
+    );
+    console.log('This is this: ', this);
+    return isInBrowser;
+  },
+
+  scrollUp: () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  },
 };
