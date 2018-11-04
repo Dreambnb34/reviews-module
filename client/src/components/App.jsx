@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {getRatingsArray} from '../libs/appHelpers';
+import {getRatingsArray, isBrowser, scrollUp} from '../libs/appHelpers';
 import ReviewCount from './ReviewCount';
 import RatingsContainer from './RatingsContainer';
 import ReviewFeed from './ReviewFeed';
@@ -97,16 +97,10 @@ class App extends Component {
     return this.state.reviewState;
   }
 
-  scrollUp() {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth',
-    });
-  }
-
   render() {
-    this.scrollUp();
+    if (isBrowser()) {
+      scrollUp();
+    }
     {
       return this.state.reviews === null ? (
         <div id="App">Loading...</div>
