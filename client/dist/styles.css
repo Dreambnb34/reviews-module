@@ -1,0 +1,265 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+
+
+html {
+  margin: 0 auto;
+  max-width: 61vh;
+   -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: 'Cabin', sans-serif;
+}
+
+hr {
+color: #EBEBEB;
+}
+
+.review-class {
+  box-sizing: border-box;
+  padding: .8em 0;
+  border-bottom: 1.4px solid #EBEBEB;
+}
+
+#App {
+  min-width: 80%;
+  margin: 0 auto;
+}
+
+.app-container {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 10vh 0;
+}
+
+.pagination {
+  box-sizing: border-box;
+  margin: 1.6em 0;
+}
+
+.pagination li {
+  display: inline-block !important;
+  vertical-align: middle !important;
+  margin-right: 40px !important;
+  color: #008489;
+  margin-left: 0px !important;
+}
+
+.pagination li:hover,
+.read-more-button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.active {
+  width: 32px !important;
+    height: 32px !important;
+    border-radius: 28px !important;
+    line-height: 32px !important;
+    text-align: center !important;
+    background-color: #008489 !important;
+    color: #ffffff !important;
+}
+
+.previous-pagination-button,
+.next-pagination-button {
+  padding: 7px 12px;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 40px !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  border: 1px #008489 solid;
+}
+
+.pagination li:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.break-me:hover {
+  text-decoration: none;
+  cursor: none;
+}
+
+.read-more-button {
+  border: none;
+  font-size: 1em;
+  color: #008489;
+}
+
+.review-avatar-image {
+  border-radius: 40px !important;
+  display: inline-block;
+}
+
+.review-info {
+  vertical-align: top;
+  padding: 0.2em 1.1em;
+  display: inline-block;
+  width: 70%;
+  font-weight: bold;
+}
+
+.review-createdAt {
+  display: inline-block;
+  margin: .4em 0;
+  font-weight: lighter;
+  font-size: .85em;
+}
+
+.review-font {
+  box-sizing: border-box;
+  padding: .3em 0;
+  margin: .8em 0;
+  font-size: 1em;
+  letter-spacing: .10rem;
+  line-height: 1.45rem;
+}
+
+/* .search-svg {
+  display: inline-block;
+} */
+
+.individual-ratings-div {
+  grid-area: ratings;
+}
+
+.individual-ratings-div-1 {
+  /* padding-left: 32px; */
+}
+
+.individual-ratings-div-3 {
+  /* padding-left: 32px;  */
+}
+
+.individual-ratings-div-5 {
+  /* padding-left: 32px;  */
+}
+
+.ratings-component {
+  letter-spacing: .07rem;
+  font-size: 1em;
+  display: inline-block;
+  height: 2.2em;
+}
+
+.ratings-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: "ratings ratings"
+                       "ratings ratings"
+                       "ratings ratings";
+  min-height: 100%;
+}
+
+.grid-count-search {
+  margin: 1em 0;
+  border-top: 1.4px solid #EBEBEB;
+  border-bottom: 1.4px solid #EBEBEB;
+  display: grid;
+  grid-template-columns: 60% 1fr;
+  grid-template-areas: "review-count search";
+}
+
+.search-information {
+  box-sizing: border-box;
+  padding: .4em 0 1.2em 0;
+  border-bottom: 1.4px solid #EBEBEB;
+}
+
+.search-information-sentence {
+  display: inline-block;
+  width: 78%;
+}
+
+.back-to-all-reviews {
+  display: inline-block;
+  color: #008489;
+}
+
+.back-to-all-reviews:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.search-term {
+  font-weight: bold;
+}
+
+.search-container {
+  grid-area: search;
+}
+
+.search-form {
+  margin: 3.8em;
+  min-width: 70%;
+  font-size: .8em;
+  vertical-align: center;
+  max-height: 2.4em;
+  height: 2.4em;
+}
+
+.review-count {
+  grid-area: review-count;
+  letter-spacing: .1rem;
+  font-size: 1.35em;
+  font-weight: bold;
+  padding-top: 1.3em;
+  box-sizing: border-box;
+  margin: 1em 0;
+}
+
