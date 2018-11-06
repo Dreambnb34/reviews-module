@@ -105,7 +105,7 @@ class App extends Component {
       return this.state.reviews === null ? (
         <div id="App">Loading...</div>
       ) : (
-        <div id="App">
+        <div className="reviews-module" id="App">
           <div className="app-container">
             <div className="grid-count-search">
               <ReviewCount
