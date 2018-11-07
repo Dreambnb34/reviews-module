@@ -12,7 +12,7 @@ const app = express()
   .use('/rooms/bundle.js', (req, res) =>
     res.status(200).sendFile(path.join(__dirname, '../client/dist/bundle.js')),
   )
-  .use(express.static(path.join(__dirname, '../client/dist/')))
+  // .use(express.static(path.join(__dirname, '../client/dist/')))
   .use('/', routes);
 
 const port = process.env.PORT || 1337;
