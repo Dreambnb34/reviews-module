@@ -7,13 +7,13 @@ const routes = require('./routes/routes');
 const app = express()
   .use(bodyParser.json())
   .use(morgan('dev'))
-  .use('/rooms', express.static(path.join(__dirname, '../client/dist/')))
+  .use('/rooms', express.static(path.join(__dirname, '/dist/')))
   .use('/', routes);
 
-const port = process.env.PORT || 1337;
+// const port = process.env.PORT || 1337;
 
-app.listen(port, () => {
-  console.log('listening on 1337!');
-});
+// app.listen(port, () => {
+//   console.log('listening on 1337!');
+// });
 
 module.exports = app;

@@ -6,7 +6,14 @@ const {
 
 const knex = require('knex')({
   client: 'pg',
-  connection: 'postgres://localhost/fec',
+  database: process.env.DB,
+  password: process.env.DB_PASSWORD,
+  connection: process.env.DB_URL,
+  user: '',
+  pool: {
+    min: 0,
+    max: 3,
+  },
 });
 
 const controller = {

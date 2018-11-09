@@ -83,7 +83,7 @@ const getRating = () => {
   }
 };
 
-for (let i = 0; i < 20000; i++) {
+for (let i = 0; i < 2000; i++) {
   let data = {};
   let rand = getRandInt(100);
   data.reviewText = makeReviewText(rand);

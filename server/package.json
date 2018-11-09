@@ -1,0 +1,29 @@
+{
+  "name": "DreamBnB-Reviews-Module",
+  "version": "",
+  "description": "Reviews-Module",
+  "author": "Jay Patrick De Guzman",
+  "license": "",
+  "engines": {
+    "node": ">=6.13.0"
+  },
+  "scripts": {
+    "start": "node ./server/index.js",
+    "build": "webpack --mode production",
+    "seed": "knex migrate:latest && knex seed:run",
+    "test": "jest --watch --coverage --config ./jest.config.js"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.4",
+    "knex": "^0.15.2",
+    "moment": "^2.22.2",
+    "morgan": "^1.9.1",
+    "moxios": "^0.4.0",
+    "objection": "^1.4.0",
+    "pg": "^7.5.0"
+  },
+  "devDependencies": {}
+}

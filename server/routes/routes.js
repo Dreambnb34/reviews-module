@@ -10,7 +10,7 @@ const router = require('express').Router();
 router.get('/rooms/*', (req, res) => {
   res
     .status(200)
-    .sendFile('index.html', {root: path.join(__dirname, '../../client/dist')});
+    .sendFile('index.html', {root: path.join(__dirname, '../dist')});
 });
 
 // Get reviews
